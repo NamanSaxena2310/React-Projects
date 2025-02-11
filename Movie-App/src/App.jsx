@@ -1,5 +1,5 @@
 import { useState,useEffect } from 'react'
-import reactLogo from './assets/react.svg'
+import { useDebounce } from 'react-use'
 import './App.css'
 import Search from './components/Search'
 import Spinner from './components/Spinner'
@@ -22,6 +22,10 @@ function App() {
   const [errorMessage, setErrorMessage] = useState('')
   const [movieList, setMovieList] = useState([])
   const [isLoading, setIsLoading] = useState(false)
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('')
+
+  //Debouncing
+  useDebounce(()=>setDebouncedSearchTerm(searchTerm), 500 ,[searchTerm])
 
   //Function to fetch movies from API
   const fetchMovies = async (query = '') =>{
@@ -57,8 +61,8 @@ function App() {
 
 
   useEffect(()=>{
-    fetchMovies(searchTerm)
-  },[searchTerm])
+    fetchMovies(debouncedSearchTerm)
+  },[debouncedSearchTerm])
 
   return (
    <main>
