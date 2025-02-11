@@ -3,8 +3,8 @@ import React from 'react'
 const Search = ({searchTerm,setSearchterm}) => {
   return (
     <div className='search' >
-      <div>
-        <img src='search.png' alt='Search'/>
+      <div >
+        <img className='mt-[40px]' src='search.png' alt='Search'/>
       </div>
 
       <input type='text'
