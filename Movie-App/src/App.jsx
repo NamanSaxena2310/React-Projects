@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import './App.css'
 import Search from './components/Search'
 import Spinner from './components/Spinner'
+import MovieCard from './components/MovieCard'
 
 const API_BASE_URL = 'https://api.themoviedb.org/3'
 
@@ -23,12 +24,12 @@ function App() {
   const [isLoading, setIsLoading] = useState(false)
 
   //Function to fetch movies from API
-  const fetchMovies = async () =>{
+  const fetchMovies = async (query = '') =>{
     setIsLoading(false)
     setErrorMessage('')
   try {
 
-    const enppoint = `${API_BASE_URL}/discover/movie?sort_by=popularity.desc`
+    const enppoint = query ?`${API_BASE_URL}/search/movie?query=${encodeURI(query)}` : `${API_BASE_URL}/discover/movie?sort_by=popularity.desc`  
 
     const response = await fetch(enppoint,API_OPTIONS)
     
@@ -56,8 +57,8 @@ function App() {
 
 
   useEffect(()=>{
-    fetchMovies()
-  },[])
+    fetchMovies(searchTerm)
+  },[searchTerm])
 
   return (
    <main>
@@ -84,7 +85,7 @@ function App() {
       ): (
         <ul>
           {movieList.map((movie)=>(
-            <p key={movie.id} className='text-white'>{movie.title}</p>
+           <MovieCard key={movie.id} movie={movie} />
           ))}
         </ul>
 
