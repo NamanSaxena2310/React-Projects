@@ -1,15 +1,26 @@
 import { useState } from 'react'
 import './index.css'
 import './App.css'
-import ExpenseForm from './components/ExpenseForm'
+import Header from './components/Header'
+import Balance from './components/Balance'
+import IncomeExpenses from './components/IncomeExpenses'
+import TransactionList from './components/TransactionList'
+import AddTransaction from './components/AddTransaction'
+
+
 
 function App() {
 
   return (
-    <>
-    <ExpenseForm/>
-
-    </>
+    <div>
+    <Header/>
+    <div className='container'>
+      <Balance/>
+      <IncomeExpenses/>
+      <TransactionList/>
+      <AddTransaction/>
+    </div>
+    </div>
   )
 }
 
