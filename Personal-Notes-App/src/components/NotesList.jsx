@@ -9,7 +9,7 @@ function NotesList() {
   return (
     <div className='flex w-full border border-black h-content align-center' >
     {
-      notes.map((note)=><Note note= {note}/>)
+      notes.map((note)=><Note key={note.id} note= {note}/>)
     }
     </div>
   )
