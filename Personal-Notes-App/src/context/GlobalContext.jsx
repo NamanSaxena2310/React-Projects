@@ -1,4 +1,4 @@
-import React,{createContext, useReducer} from 'react'
+import React,{createContext, useReducer, useState} from 'react'
 import AppReducer from './AppReducer'
 
 
@@ -42,6 +42,7 @@ export const GlobalContext = createContext(initialState)
 
 export const GlobalProvider = ({children})=>{
   const [state,dispatch] = useReducer(AppReducer,initialState)
+  const [selectedNote, setSelectedNote] = useState(null)
 
   const deleteNote = (id)=>{
     dispatch({
@@ -57,11 +58,21 @@ export const GlobalProvider = ({children})=>{
     })
   }
 
+  const editNote = ({id,note})=>{
+    dispatch({
+      type: 'EDIT_NOTE',
+      payload: {id,note}
+    })
+  }
+
   return(
     <GlobalContext.Provider value={{
       notes: state.notes,
       deleteNote,
-      addNote
+      addNote,
+      editNote,
+      selectedNote,
+      setSelectedNote
     }}>
       {children}
     </GlobalContext.Provider>

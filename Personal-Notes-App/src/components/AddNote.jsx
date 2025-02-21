@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { GlobalContext } from '../context/GlobalContext'
 
 function AddNote() {
@@ -6,32 +6,55 @@ function AddNote() {
   const [content,setContent]= useState('')
   const [date,setDate]= useState(null)
 
-  const {addNote} = useContext(GlobalContext)
+  const {addNote,selectedNote,setSelectedNote,editNote} = useContext(GlobalContext)
 
-  const newNote = {
-    id: Math.floor(Math.random()*1000000),
-    title,
-    content,
-    date
-  }
+  useEffect(()=>{
+    if (selectedNote) {
+      setTitle(selectedNote.title)
+      setContent(selectedNote.content)
+      setDate(selectedNote.date)
+    }else{
+      setTitle('')
+      setContent('')
+      setDate('')
+    }
+   
+  },[selectedNote])
 
+
+ 
   const submit = ()=>{
-    addNote(newNote)
+    if (selectedNote) {
+        editNote({id:selectedNote.id, note:{title,content,date}})
+        setSelectedNote(null)
+    } else {
+      addNote({
+        id: Math.floor(Math.random() * 1000000),
+        title,
+        content,
+        date,
+      });
+
+      setContent('')
+      setDate('')
+      setTitle('')
+    }
+    
   }
 
   return (
     <div className='mt-10'>
-      <input onChange={(e)=>{
+      <input value={title} onChange={(e)=>{
         setTitle(e.target.value)
       }} type='text' className='border' placeholder='Enter your Title here '/>
-      <input onChange={(e)=>{
+      <input value={date} onChange={(e)=>{
         setDate(e.target.value)
       }} className='border' type='date'/>
-      <textarea onChange={(e)=>{
+      <textarea value={content} onChange={(e)=>{
         setContent(e.target.value)
       }} placeholder='Enter your content here ' className='border mt-5 block' rows={5} cols={50}></textarea>
 
-      <button onClick={submit}>Add</button>
+      <button onClick={submit}>{selectedNote ? 'Update' : 'Submit'}</button>
     </div>
   )
 }

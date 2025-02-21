@@ -11,6 +11,17 @@
         ...state,
         notes: [action.payload,...state.notes]
       }
+
+    case "EDIT_NOTE" :
+
+      return{
+        ...state,
+        notes: state.notes.map((note)=>
+          note.id == action.payload.id ? 
+          {...note,...action.payload.note} 
+          : note
+        )
+      }
     default:
      return state
   }
