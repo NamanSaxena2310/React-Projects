@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { GlobalContext } from '../context/GlobalContext'
 
-function Note() {
+function Note({note}) {
+
+
   return (
     <div className='border p-3 m-5'>
-    <p>Hi I am Naman Saxena</p>
+    <h1>{note.title}</h1>
+    <p>{note.content}</p>
+    <p>{note.date}</p>
     <button className='mr-1'>Complete</button>
     <button>Edit</button>
   </div>
