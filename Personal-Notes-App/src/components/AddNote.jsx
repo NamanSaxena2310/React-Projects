@@ -43,20 +43,44 @@ function AddNote() {
   }
 
   return (
-    <div className='mt-10'>
-      <input value={title} onChange={(e)=>{
-        setTitle(e.target.value)
-      }} type='text' className='border' placeholder='Enter your Title here '/>
-      <input value={date} onChange={(e)=>{
-        setDate(e.target.value)
-      }} className='border' type='date'/>
-      <textarea value={content} onChange={(e)=>{
-        setContent(e.target.value)
-      }} placeholder='Enter your content here ' className='border mt-5 block' rows={5} cols={50}></textarea>
+    <>
+     <h1 className='text-4xl font-semibold text-center'>
+      Add New Note
+    </h1>
+<div className="flex justify-center items-center">
+      <div className="mt-10 p-6 border rounded-lg shadow-lg">
 
-      <button onClick={submit}>{selectedNote ? 'Update' : 'Submit'}</button>
+        <input
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          type="text"
+          className="border p-2 w-full"
+          placeholder="Enter your Title here"
+        />
+        <input
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+          className="border p-2 w-full mt-4"
+          type="date"
+        />
+        <textarea
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+          placeholder="Enter your content here"
+          className="border p-2 w-full mt-4 block"
+          rows={5}
+          cols={50}
+        ></textarea>
+  
+        <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded" onClick={submit}>
+          {selectedNote ? "Update" : "Submit"}
+        </button>
+      </div>
     </div>
-  )
+    </>
+    
+  );
+  
 }
 
 export default AddNote

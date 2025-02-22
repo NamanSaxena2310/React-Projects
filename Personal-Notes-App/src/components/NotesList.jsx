@@ -7,7 +7,7 @@ function NotesList() {
   const {notes} = useContext(GlobalContext)
   console.log(notes)
   return (
-    <div className='flex w-full border border-black h-content align-center' >
+    <div className='grid grid-cols-4 w-content h-content align-center' >
     {
       notes.map((note)=><Note key={note.id} note= {note}/>)
     }
