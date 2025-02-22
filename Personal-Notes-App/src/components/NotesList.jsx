@@ -9,7 +9,7 @@ function NotesList() {
   return (
     <div className='grid grid-cols-4 w-content h-content align-center' >
     {
-      notes.map((note)=><Note key={note.id} note= {note}/>)
+      notes   ? notes.map((note)=><Note key={note.id} note= {note}/>) : <p>No Notes to Display</p>
     }
     </div>
   )

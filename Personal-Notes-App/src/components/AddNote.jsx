@@ -72,7 +72,7 @@ function AddNote() {
           cols={50}
         ></textarea>
   
-        <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded" onClick={submit}>
+        <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded cursor-pointer" onClick={submit}>
           {selectedNote ? "Update" : "Submit"}
         </button>
       </div>

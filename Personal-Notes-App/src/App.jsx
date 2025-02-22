@@ -5,6 +5,7 @@ import NotesList from './components/NotesList'
 import AddNote from './components/AddNote'
 import { GlobalContext, GlobalProvider } from './context/GlobalContext'
 
+
 function App() {
 
 
