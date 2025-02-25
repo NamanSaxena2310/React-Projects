@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router'
 import './App.css'
 import Header from './components/Header'
 import AddContact from './components/AddContact'
@@ -21,9 +22,17 @@ function App() {
 
   return (
     <div>
-      <Header/>
-      <AddContact  setContacts ={setContacts} />
-      <ContactList contacts={contacts} setContacts= {setContacts}/>
+   
+       
+       <Header/>
+       <Routes>
+        <Route path='/' element= {<ContactList contacts={contacts} setContacts= {setContacts}  />}/>
+        <Route path='/add' element= {<AddContact setContacts ={setContacts} />}/>
+       </Routes>
+       
+       {/* <AddContact  setContacts ={setContacts} />
+       <ContactList contacts={contacts} setContacts= {setContacts}/> */}
+
     </div>
   )
 }

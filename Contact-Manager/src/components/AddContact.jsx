@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router';
 
 function AddContact({setContacts}) {
 
   const [name,setName] = useState("")
   const [email,setEmail] = useState("")
+  const navigate = useNavigate()
 
   // Creating new Contact
   const newContact = {
@@ -20,6 +22,7 @@ function AddContact({setContacts}) {
       setContacts((prevContacts)=> [ newContact ,...prevContacts])
       setName("")
       setEmail("")
+      navigate('/')
     }
   }
   return (
@@ -38,9 +41,12 @@ function AddContact({setContacts}) {
 
         {/* Fix button width and center */}
         <div className="flex justify-start">
-          <button onClick={submitForm} className="bg-blue-500 shadow-lg shadow-blue-500/50 text-white font-bold px-6 py-3 rounded-md hover:bg-blue-600 transition">
+        
+        <button onClick={submitForm} className="bg-blue-500 shadow-lg shadow-blue-500/50 text-white font-bold px-6 py-3 rounded-md hover:bg-blue-600 transition">
             Add
           </button>
+        
+          
         </div>
       </form>
     </div>
