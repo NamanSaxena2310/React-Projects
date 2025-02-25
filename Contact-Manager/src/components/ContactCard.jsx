@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 function ContactCard({ contact, contacts,setContacts }) {
   
@@ -8,6 +9,8 @@ function ContactCard({ contact, contacts,setContacts }) {
   }
 
   return (
+    <>
+    <Link to={`details/${contact.id}`}>
     <div className="w-full p-4 border border-gray-200 rounded-md my-2 shadow hover:shadow-lg transition mx-auto text-center">
       <h3 className="text-lg font-semibold">{contact.name}</h3>
       <p className="text-gray-500 text-sm">{contact.email}</p>
@@ -28,6 +31,10 @@ function ContactCard({ contact, contacts,setContacts }) {
         </svg>
       </button>
     </div>
+    </Link>
+   
+    </>
+    
   );
 }
 
