@@ -6,7 +6,7 @@ function ContactList({ contacts, setContacts }) {
 
   return (
     <div className="max-w-md mx-auto mt-6">
-      <h1>Contact List</h1>
+      <h1 className='text-4xl mb-8 text-center'>Contact List</h1>
       {contacts.map((contact) => (
         <ContactCard key={contact.id} contact={contact} contacts={contacts} setContacts ={setContacts} />
       ))}
