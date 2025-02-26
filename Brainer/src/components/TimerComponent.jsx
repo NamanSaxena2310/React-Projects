@@ -17,10 +17,13 @@ function TimerComponent() {
    
   },[timer])
   return (
-    <div className="text-center text-white text-2xl sm:text-4xl font-bold p-6 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg shadow-lg animate-fadeIn">
-  Hi <span className="text-yellow-300">{playerName}</span>, Your Game Starts in 
-  <span className="text-red-400 animate-pulse"> {timer} </span> seconds
-</div>
+    <div className="flex items-center justify-center h-screen">
+    <div className="text-center text-white text-2xl sm:text-4xl font-bold p-6 rounded-lg shadow-lg animate-fadeIn">
+      Hi <span className="text-yellow-300">{playerName}</span>, Your Game Starts in 
+      <span className="text-red-400 animate-pulse"> {timer} </span> seconds
+    </div>
+  </div>
+  
 
   )
 }
