@@ -2,9 +2,8 @@ const express = require('express')
 
 const UserRouter =  express.Router()
 
-UserRouter.get('/get-user')
-UserRouter.post('/create-user')
-UserRouter.post('/upate-user')
+UserRouter.post('/signup')
+UserRouter.post('/signin')
 
 module.exports = {
   UserRouter
