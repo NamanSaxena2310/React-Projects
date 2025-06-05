@@ -2,6 +2,7 @@ const zod = require("zod/v4");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const User = require("../models/User");
+const { Account } = require("../models/Account");
 
 const createToken = (userId) => {
   return jwt.sign({ id: userId }, process.env.JWT_SECRET, {
@@ -44,7 +45,17 @@ const signUp = async (req, res) => {
       password: hashedPassword,
     });
 
+    // Initialize balances on signup
+
+     await Account.create({
+      userId:user._id,
+      balance: Math.floor((Math.random() * 10000) + 1)
+    })
+
     const token = createToken(user._id);
+
+    
+
 
     res.status(201).json({
       success: true,
@@ -144,8 +155,40 @@ const updateUser = async (req, res, next) => {
   }
 };
 
+const filterUser = async (req, res, next) => {
+  try {
+    const filter = req.query.filter || "";
+
+    const users = await User.find({
+      $or: [
+        { firstname: { "$regex": filter, "$options": "i" } },
+        { lastname: { "$regex": filter, "$options": "i" } }
+      ]
+    });
+
+    res.json({
+      success: true,
+      data: users.map(user => ({
+        username: user.username,
+        firstName: user.firstname,
+        lastName: user.lastname,
+        _id: user._id
+      }))
+    });
+  } catch (error) {
+    console.error("filterUser Error:", error);
+    res.status(500).json({ success: false, message: "Internal Server Error" });
+  }
+};
+
+
+
+
+
+
 module.exports = {
   signUp,
   signIn,
   updateUser,
+  filterUser
 };
