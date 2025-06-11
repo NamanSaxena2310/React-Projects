@@ -1,8 +1,5 @@
-import React from 'react'
-
-const Balance = ({ value }) => {
-  return (
-   <div className="flex">
+export const Balance = ({ value }) => {
+    return <div className="flex">
         <div className="font-bold text-lg">
             Your balance
         </div>
@@ -10,7 +7,4 @@ const Balance = ({ value }) => {
             Rs {value}
         </div>
     </div>
-  )
 }
-
-export default Balance
