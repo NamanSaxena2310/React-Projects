@@ -3,9 +3,9 @@ import Slider from './Slider'
 
 const Topbar = () => {
   return (
-    <div className='border flex justify-between items-center  w-full h-20'>
+    <div className=' flex bg-[#1b1c1d] justify-between items-center shadow-xl w-full h-20'>
           <div className='pl-5'>
-            <div className=' p-4 text-2xl '>
+            <div className=' p-4 text-xl '>
               <span>1 / </span> <span>5</span>
             </div>
           </div>

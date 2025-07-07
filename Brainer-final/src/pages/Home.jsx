@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <div>
       <Topbar/>
-     {playerName ? "Hello Naman" : <NameInput/> } 
+     {playerName ? <p className='text-center mt-10 text-3xl'>Hello <span className='text-[#00d3bb]'>{playerName}</span> </p> : <NameInput/> } 
     </div>
   )
 }
