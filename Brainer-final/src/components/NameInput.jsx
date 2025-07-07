@@ -17,7 +17,7 @@ const NameInput = () => {
   console.log(playerName);
 
   return (
-    <div className="flex justify-center items-center gap-5   mt-10   ">
+    <div className="flex justify-center items-center gap-5 mb-10   mt-10   ">
       <fieldset className="fieldset">
         <input
           value={name}
