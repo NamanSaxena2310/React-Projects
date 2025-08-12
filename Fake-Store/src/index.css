@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Outfit:wght@100..900&family=Prata&display=swap');
 
 @theme{
   --color-primary:#ffffff;
@@ -7,5 +8,5 @@
 
 body {
   background-color: #1a1a1a;
-  
+  font-family: "Inconsolata", monospace;
 }
