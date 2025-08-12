@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router"
 import Home from "./Pages/Home"
-import Login from "./Pages/Login"
+import AuthForm from "./Pages/AuthForm"
 
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="/login" element={<Login/>}/>
+        <Route path="/login" element={<AuthForm/>}/>
       </Routes>
     </>
   )
