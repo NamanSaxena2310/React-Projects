@@ -6,7 +6,8 @@ import Headings from '../Components/Headings';
 import Button from '../Components/Button';
 
 const AuthForm = () => {
-  const [formType, setFormType] = useState('Login'); // "Login" or "Signup"
+  const [formType, setFormType] = useState('Login'); 
+  
 
   return (
     <div className="text-primary flex flex-col sm:flex-row justify-center items-center min-h-screen gap-6 sm:gap-x-8 px-4 py-6">
