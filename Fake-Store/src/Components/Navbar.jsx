@@ -13,11 +13,11 @@ const Navbar = () => {
         {menuOpen === false ? <GiHamburgerMenu size={25} /> : <IoMdClose size={28} />}
       </button>
 
-      <ul className={`flex flex-col justify-center items-center text-xl gap-5 absolute top-19 left-0 w-full bg-neutral-900  h-screen  ${menuOpen ? "block" : "hidden"} md:visible md:h-fit md:flex md:flex-row md:static md:w-fit md:bg-transparent`}>
-        <NavLink>Home</NavLink>
-        <NavLink>Products</NavLink>
-        <NavLink>Cart</NavLink>
-        <NavLink>Logout</NavLink>
+      <ul className={` z-10000 flex flex-col justify-center items-center text-xl gap-5 absolute top-19 left-0 w-full bg-neutral-900  h-screen  ${menuOpen ? "block" : "hidden"} md:visible md:h-fit md:flex md:flex-row md:static md:w-fit md:bg-transparent`}>
+        <NavLink to={'/home'}>Home</NavLink>
+        <NavLink to={'/products'}>Products</NavLink>
+        <NavLink to={'/cart'}>Cart</NavLink>
+        <NavLink to={'/logout'}>Logout</NavLink>
       </ul>
     </nav>
   );
