@@ -4,10 +4,11 @@ import { TbLockPassword } from "react-icons/tb";
 import { CgProfile } from "react-icons/cg";
 import Headings from '../Components/Headings';
 import Button from '../Components/Button';
+import { useDispatch, useSelector } from 'react-redux';
+
 
 const AuthForm = () => {
   const [formType, setFormType] = useState('Login'); 
-  
 
   return (
     <div className="text-primary flex flex-col sm:flex-row justify-center items-center min-h-screen gap-6 sm:gap-x-8 px-4 py-6">
@@ -75,6 +76,9 @@ const AuthForm = () => {
           )}
         </div>
       </form>
+
+
+      
     </div>
   )
 }

@@ -8,14 +8,14 @@ import Cart from "./Pages/Cart"
 import ProductDetail from "./Pages/ProductDetail"
 
 function App() {
-
+ 
 
   return (
     <>
     <Navbar/>
       <Routes>
         
-        <Route path="/auth" element={<AuthForm/>}/>
+        <Route path="/"  element={<AuthForm/>}/>
         <Route path="/home" element={<Home/>}/>
         <Route path="/products" element={<Products/>}/>
         <Route path="/cart" element={<Cart/>}/>
